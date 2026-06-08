@@ -24,289 +24,44 @@
     --sans: 'DM Sans', sans-serif;
   }
 
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--ink);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 1.25rem 2rem;
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-  }
-
-  .logo {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .logo em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .tagline {
-    font-size: 0.8rem;
-    color: var(--ink2);
-    font-family: var(--mono);
-    letter-spacing: 0.02em;
-  }
-
-  main {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2.5rem 2rem;
-    gap: 2rem;
-  }
-
-  @media (max-width: 700px) {
-    main { grid-template-columns: 1fr; padding: 1.5rem 1rem; }
-    header { padding: 1rem; }
-  }
-
-  .panel {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .panel-label {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink2);
-  }
-
-  .drop-zone {
-    border: 1.5px dashed var(--border);
-    border-radius: 12px;
-    background: var(--surface);
-    padding: 3rem 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.15s, background 0.15s;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    min-height: 280px;
-  }
-
-  .drop-zone:hover, .drop-zone.over {
-    border-color: var(--accent);
-    background: var(--accent-bg);
-  }
-
-  .drop-icon {
-    width: 48px;
-    height: 48px;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    margin-bottom: 0.25rem;
-  }
-
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+  header { border-bottom: 1px solid var(--border); padding: 1.25rem 2rem; display: flex; align-items: baseline; gap: 1rem; }
+  .logo { font-family: var(--serif); font-size: 1.5rem; letter-spacing: -0.01em; }
+  .logo em { font-style: italic; color: var(--accent); }
+  .tagline { font-size: 0.8rem; color: var(--ink2); font-family: var(--mono); letter-spacing: 0.02em; }
+  main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; max-width: 1100px; width: 100%; margin: 0 auto; padding: 2.5rem 2rem; gap: 2rem; }
+  @media (max-width: 700px) { main { grid-template-columns: 1fr; padding: 1.5rem 1rem; } header { padding: 1rem; } }
+  .panel { display: flex; flex-direction: column; gap: 1rem; }
+  .panel-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink2); }
+  .drop-zone { border: 1.5px dashed var(--border); border-radius: 12px; background: var(--surface); padding: 3rem 1.5rem; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; min-height: 280px; }
+  .drop-zone:hover, .drop-zone.over { border-color: var(--accent); background: var(--accent-bg); }
+  .drop-icon { width: 48px; height: 48px; border: 1.5px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; background: white; margin-bottom: 0.25rem; }
   .drop-icon svg { width: 22px; height: 22px; stroke: var(--ink2); }
-
-  .drop-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-  }
-
-  .drop-sub {
-    font-size: 0.8rem;
-    color: var(--ink2);
-    font-family: var(--mono);
-  }
-
-  .preview-wrap {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: white;
-    flex: 1;
-    min-height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .preview-wrap img {
-    max-width: 100%;
-    max-height: 360px;
-    object-fit: contain;
-    display: block;
-  }
-
-  .preview-reset {
-    position: absolute;
-    top: 10px; right: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    width: 28px; height: 28px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px;
-    color: var(--ink2);
-    transition: background 0.1s;
-  }
+  .drop-title { font-size: 0.95rem; font-weight: 500; }
+  .drop-sub { font-size: 0.8rem; color: var(--ink2); font-family: var(--mono); }
+  .preview-wrap { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: white; flex: 1; min-height: 280px; display: flex; align-items: center; justify-content: center; }
+  .preview-wrap img { max-width: 100%; max-height: 360px; object-fit: contain; display: block; }
+  .preview-reset { position: absolute; top: 10px; right: 10px; background: white; border: 1px solid var(--border); border-radius: 6px; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--ink2); transition: background 0.1s; }
   .preview-reset:hover { background: var(--surface); }
-
-  .mode-row {
-    display: flex;
-    gap: 6px;
-  }
-
-  .mode-btn {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: white;
-    cursor: pointer;
-    color: var(--ink2);
-    transition: all 0.12s;
-  }
-
-  .mode-btn.active {
-    background: var(--ink);
-    color: white;
-    border-color: var(--ink);
-  }
-
-  .custom-input {
-    width: 100%;
-    font-family: var(--sans);
-    font-size: 0.875rem;
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: white;
-    color: var(--ink);
-    resize: none;
-    line-height: 1.5;
-    outline: none;
-    transition: border-color 0.15s;
-  }
+  .mode-row { display: flex; gap: 6px; }
+  .mode-btn { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: white; cursor: pointer; color: var(--ink2); transition: all 0.12s; }
+  .mode-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+  .custom-input { width: 100%; font-family: var(--sans); font-size: 0.875rem; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: white; color: var(--ink); resize: none; line-height: 1.5; outline: none; transition: border-color 0.15s; }
   .custom-input:focus { border-color: var(--accent); }
   .custom-input::placeholder { color: var(--ink2); }
-
-  .run-btn {
-    width: 100%;
-    padding: 12px;
-    background: var(--ink);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-family: var(--sans);
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: opacity 0.15s, transform 0.1s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
+  .run-btn { width: 100%; padding: 12px; background: var(--ink); color: white; border: none; border-radius: 8px; font-family: var(--sans); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: opacity 0.15s, transform 0.1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .run-btn:hover:not(:disabled) { opacity: 0.85; }
   .run-btn:active:not(:disabled) { transform: scale(0.99); }
   .run-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-  .spinner {
-    width: 16px; height: 16px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.65s linear infinite;
-  }
+  .spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.65s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  .result-box {
-    flex: 1;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    line-height: 1.8;
-    white-space: pre-wrap;
-    color: var(--ink);
-    min-height: 280px;
-    overflow-y: auto;
-  }
-
-  .result-box.empty {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink2);
-    font-family: var(--sans);
-    font-size: 0.875rem;
-  }
-
-  .result-box.streaming {
-    color: var(--ink);
-  }
-
-  .result-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .char-count {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--ink2);
-  }
-
-  .copy-btn {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: white;
-    cursor: pointer;
-    color: var(--ink2);
-    transition: all 0.12s;
-  }
+  .result-box { flex: 1; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; font-family: var(--mono); font-size: 0.82rem; line-height: 1.8; white-space: pre-wrap; color: var(--ink); min-height: 280px; overflow-y: auto; }
+  .result-box.empty { display: flex; align-items: center; justify-content: center; color: var(--ink2); font-family: var(--sans); font-size: 0.875rem; }
+  .result-footer { display: flex; align-items: center; justify-content: space-between; }
+  .char-count { font-family: var(--mono); font-size: 0.7rem; color: var(--ink2); }
+  .copy-btn { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: white; cursor: pointer; color: var(--ink2); transition: all 0.12s; }
   .copy-btn:hover { background: var(--success-bg); color: var(--success); border-color: var(--success); }
-
-  .error-msg {
-    font-size: 0.8rem;
-    color: #C0392B;
-    background: #FEF0EE;
-    border: 1px solid #F5C6C2;
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-family: var(--mono);
-  }
+  .error-msg { font-size: 0.8rem; color: #C0392B; background: #FEF0EE; border: 1px solid #F5C6C2; border-radius: 8px; padding: 10px 14px; font-family: var(--mono); }
 </style>
 </head>
 <body>
@@ -317,11 +72,9 @@
 </header>
 
 <main>
-  <!-- 왼쪽: 업로드 -->
   <div class="panel">
     <div class="panel-label">01 — 이미지 업로드</div>
-
-    <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()" role="button" tabindex="0" aria-label="이미지 파일 업로드">
+    <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()" role="button" tabindex="0">
       <div class="drop-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 16.5V18a2 2 0 002 2h12a2 2 0 002-2v-1.5"/>
@@ -331,39 +84,28 @@
       <div class="drop-title">클릭하거나 드래그해서 올려주세요</div>
       <div class="drop-sub">JPG · PNG · WEBP · PDF</div>
     </div>
-
     <div class="preview-wrap" id="preview-wrap" style="display:none;">
       <img id="preview-img" alt="미리보기">
       <button class="preview-reset" id="reset-btn" title="다시 선택">✕</button>
     </div>
-
     <input type="file" id="file-input" accept="image/*" style="display:none;">
   </div>
 
-  <!-- 오른쪽: 설정 + 결과 -->
   <div class="panel">
     <div class="panel-label">02 — 옵션 & 결과</div>
-
     <div class="mode-row">
       <button class="mode-btn active" id="btn-ocr" onclick="setMode('ocr')">텍스트 추출</button>
       <button class="mode-btn" id="btn-custom" onclick="setMode('custom')">직접 질문</button>
     </div>
-
     <div id="custom-area" style="display:none;">
       <textarea class="custom-input" id="custom-prompt" rows="2" placeholder="예: 이 영수증의 합계 금액은? / 표의 내용을 정리해줘"></textarea>
     </div>
-
     <button class="run-btn" id="run-btn" onclick="runOCR()" disabled>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       이미지 분석하기
     </button>
-
     <div id="error-area"></div>
-
-    <div class="result-box empty" id="result-box">
-      결과가 여기 표시됩니다
-    </div>
-
+    <div class="result-box empty" id="result-box">결과가 여기 표시됩니다</div>
     <div class="result-footer">
       <span class="char-count" id="char-count"></span>
       <div style="display:flex; gap:6px;">
@@ -375,10 +117,7 @@
 </main>
 
 <script>
-let mode = 'ocr';
-let base64 = '';
-let mime = '';
-
+let mode = 'ocr', base64 = '', mime = '';
 const dropZone = document.getElementById('drop-zone');
 const previewWrap = document.getElementById('preview-wrap');
 const previewImg = document.getElementById('preview-img');
@@ -386,13 +125,11 @@ const runBtn = document.getElementById('run-btn');
 const resultBox = document.getElementById('result-box');
 const errorArea = document.getElementById('error-area');
 
-// drag & drop
 dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('over'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
 dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('over'); handleFile(e.dataTransfer.files[0]); });
 document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
 document.getElementById('reset-btn').addEventListener('click', e => { e.stopPropagation(); resetImage(); });
-dropZone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') document.getElementById('file-input').click(); });
 
 function handleFile(file) {
   if (!file || !file.type.startsWith('image/')) return;
@@ -434,7 +171,7 @@ async function runOCR() {
   errorArea.innerHTML = '';
   runBtn.disabled = true;
   runBtn.innerHTML = '<div class="spinner"></div> 분석 중...';
-  resultBox.className = 'result-box streaming';
+  resultBox.className = 'result-box';
   resultBox.textContent = '';
   document.getElementById('copy-btn').style.display = 'none';
   document.getElementById('char-count').textContent = '';
@@ -449,12 +186,10 @@ async function runOCR() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ image: base64, mime, prompt })
     });
-
     if (!res.ok) {
       const err = await res.json().catch(() => ({ error: '알 수 없는 오류' }));
       throw new Error(err.error || `서버 오류 (${res.status})`);
     }
-
     const data = await res.json();
     const text = data.text || '';
     resultBox.textContent = text;
@@ -471,7 +206,10 @@ async function runOCR() {
 }
 
 function exportCSV() {
-  window.location.href = '/api/export';
+  const a = document.createElement('a');
+  a.href = '/api/export';
+  a.download = 'work_logs.csv';
+  a.click();
 }
 
 function copyResult() {
